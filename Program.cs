@@ -1,6 +1,10 @@
 using app.src.Data;
 using app.src.Data.Repository.Carteiras;
 using app.src.Data.Repository.Transferencias;
+using app.src.Service.Autorizador;
+using app.src.Service.Carteiras;
+using app.src.Service.Notificacao;
+using app.src.Service.Transferencias;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
@@ -19,7 +23,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>
 });
 builder.Services.AddScoped<ICarteiraRepository, CarteiraRepository>();
 builder.Services.AddScoped<ITransferenciaRepository, TransferenciaRepository>();
-builder.Services.AddScoped<ICarteiraRepository, CarteiraRepository>();
+builder.Services.AddScoped<ITransferenciaService, TransferenciaService>();
+builder.Services.AddScoped<ICarteiraService, CarteiraService>();
+builder.Services.AddHttpClient<IAutorizadorService, AutorizadorService>();
+builder.Services.AddScoped<INotificacaoService, NotificationService>();
 
 var app = builder.Build();
 

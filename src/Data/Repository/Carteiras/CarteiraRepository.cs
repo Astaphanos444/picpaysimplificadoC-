@@ -16,7 +16,7 @@ namespace app.src.Data.Repository.Carteiras
         }
         public async Task AddAsync(CarteiraEntity carteira)
         {
-            await _context.AddAsync(carteira);
+            await _context.Wallets.AddAsync(carteira);
         }
 
         public async Task CommitAsync()
@@ -32,11 +32,12 @@ namespace app.src.Data.Repository.Carteiras
 
         public async Task<CarteiraEntity?> GetById(int id)
         {
-            return await _context.Wallets.FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Wallets.FindAsync(id);
         }
 
         public async Task UpdateAsync(CarteiraEntity carteira)
         {
+            await Task.Delay(0);
             _context.Update(carteira);
         }
     }

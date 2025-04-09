@@ -16,6 +16,7 @@ namespace app.src.Model
         public decimal SaldoConta { get; set; }
         public UserType UserType { get; set; }
 
+        public CarteiraEntity(){}
         public CarteiraEntity(string nomeCompleto, string cPFCNPJ, string email, string senha, UserType userType, decimal saldoConta = 0)
         {
             NomeCompleto = nomeCompleto;

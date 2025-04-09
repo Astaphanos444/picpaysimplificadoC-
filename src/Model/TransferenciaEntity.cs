@@ -25,5 +25,6 @@ namespace app.src.Model
             ReceiverId = receiverId;
             Valor = valor;
         }
+        public TransferenciaEntity(){}
     }
 }
